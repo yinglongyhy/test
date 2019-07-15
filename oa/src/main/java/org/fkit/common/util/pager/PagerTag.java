@@ -1,9 +1,8 @@
-﻿package org.fkit.common.util.pager;
-
-import java.io.IOException;
+package org.fkit.common.util.pager;
 
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.SimpleTagSupport;
+import java.io.IOException;
 /**
  * @author xlei @qq 251425887 @tel 18665616520
  * @Email 251425887@qq.com

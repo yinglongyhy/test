@@ -1,35 +1,10 @@
 package org.fkit.oa.identity.service.impl;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.JoinType;
-import javax.persistence.criteria.Path;
-import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
-import javax.servlet.http.HttpSession;
-
 import org.fkit.common.util.CommonContants;
 import org.fkit.common.util.pager.PageModel;
-import org.fkit.oa.identity.domain.Dept;
-import org.fkit.oa.identity.domain.Module;
-import org.fkit.oa.identity.domain.Popedom;
-import org.fkit.oa.identity.domain.Role;
-import org.fkit.oa.identity.domain.User;
+import org.fkit.oa.identity.domain.*;
 import org.fkit.oa.identity.dto.UserModule;
-import org.fkit.oa.identity.repository.DeptRepository;
-import org.fkit.oa.identity.repository.JobRepository;
-import org.fkit.oa.identity.repository.ModuleRepository;
-import org.fkit.oa.identity.repository.PopedomRepository;
-import org.fkit.oa.identity.repository.RoleRepository;
-import org.fkit.oa.identity.repository.UserRepository;
+import org.fkit.oa.identity.repository.*;
 import org.fkit.oa.identity.service.IdentityService;
 import org.fkit.oa.identity.vo.TreeData;
 import org.fkit.oa.util.OaContants;
@@ -45,6 +20,11 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
+
+import javax.persistence.criteria.*;
+import javax.servlet.http.HttpSession;
+import java.util.*;
+import java.util.Map.Entry;
 //import org.fkjava.common.Repository.GeneratorRepository;
 /**
  * @author xlei
@@ -84,7 +64,7 @@ public class IdentityServiceImpl implements IdentityService {
 	@Autowired  // bytype
 	@Qualifier("popedomRepository") // byName
 	private PopedomRepository popedomRepository;
-	
+
 	@Transactional(readOnly=true)
 	@Override
 	public List<Dept> getAllDepts(){
@@ -179,7 +159,7 @@ public class IdentityServiceImpl implements IdentityService {
 			/** 查询用户所拥有的所有操作权限编号 
 			 * */
 			List<String> userAllPopedomOperasCodes = popedomRepository.getUserPopedomOperasCodes(UserHolder.getCurrentUser().getUserId());
-			
+
 			if(userAllPopedomOperasCodes!=null && userAllPopedomOperasCodes.size()>0 ){
 				 Map<String, List<String>> userAllOperasPopedomUrls = new HashMap<>();
 				 String moduleUrl = "" ;
