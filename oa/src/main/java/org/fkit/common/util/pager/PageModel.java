@@ -30,6 +30,7 @@ public class PageModel {
 		return recordCount;
 	}
 	public void setRecordCount(long recordCount) {
+	    System.out.println("hello");
 		this.recordCount = recordCount;
 	}
 	public int getPageIndex() {
