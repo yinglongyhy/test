@@ -10,6 +10,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @QQ 251425887
  * @Date 2017年7月23日下午8:06:42
  * @From http://www.fkjava.org 疯狂软件
+ * 
+ * 
+ * 
+ * 我是
  * @Version 1.0
  * @SpringBootApplication指定这是一个 spring boot的应用程序.
  */
@@ -19,6 +23,9 @@ public class App  {
     public static void main( String[] args )
     {
     	// SpringApplication 用于从main方法启动Spring应用的类。
+        
+        
+        
         SpringApplication.run(App.class, args);
     }
 }
