@@ -30,12 +30,12 @@ public class PageModel {
 		return recordCount;
 	}
 	public void setRecordCount(long recordCount) {
-	    System.out.println("hello");
 		this.recordCount = recordCount;
 	}
 	public int getPageIndex() {
 //		this.pageIndex = this.pageIndex>=this.getTotalSize()?this.getTotalSize():this.pageIndex;
 		this.pageIndex = this.pageIndex <= 0?1:this.pageIndex;
+		System.out.println("hello");
 //		/** 判断当前页面是否超过了总页数:如果超过了默认给最后一页作为当前页  */
 		return pageIndex;
 	}
